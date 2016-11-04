@@ -1,0 +1,16 @@
+[user]
+	name = Joseph Salisbury
+	email = salisbury.joseph@gmail.com
+
+[help]
+	autocorrect = -1
+
+[alias]
+	d = diff
+	st = status --short --branch
+	co = checkout
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr)%C(bold blue)<%an>%Creset' --abbrev-commit
+	b = branch
+
+[commit]
+	template = /home/joseph/.gittemplate
