@@ -9,4 +9,4 @@ dependencies:
 
 test:
     override:
-        - docker run -ti salisburyjoseph/dev-workspace-container:$CIRCLE_SHA1 -c "exit"
+        - docker run -ti salisburyjoseph/dev-workspace-container:$CIRCLE_SHA1 -c 'echo good day! && exit'
