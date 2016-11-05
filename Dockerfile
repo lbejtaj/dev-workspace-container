@@ -3,12 +3,13 @@ MAINTAINER Joseph Salisbury <salisbury.joseph@gmail.com>
 
 RUN apt-get -y update
 
-RUN apt-get -y install curl=7.50.1-1ubuntu1.1
-RUN apt-get -y install dnsutils=1:9.10.3.dfsg.P4-10.1ubuntu1.1
-RUN apt-get -y install git=1:2.9.3-1
-RUN apt-get -y install iputils-ping=3:20150815-2ubuntu3
-RUN apt-get -y install sudo=1.8.16-0ubuntu3
-RUN apt-get -y install vim=2:7.4.1829-1ubuntu2
+RUN apt-get -y install \
+    curl=7.50.1-1ubuntu1.1 \
+    dnsutils=1:9.10.3.dfsg.P4-10.1ubuntu1.1 \
+    git=1:2.9.3-1 \
+    iputils-ping=3:20150815-2ubuntu3 \
+    sudo=1.8.16-0ubuntu3 \
+    vim=2:7.4.1829-1ubuntu2
 
 RUN curl -sS https://storage.googleapis.com/kubernetes-release/release/v1.4.3/bin/linux/amd64/kubectl -o /bin/kubectl \
     && chmod +x /bin/kubectl
