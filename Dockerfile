@@ -10,7 +10,7 @@ RUN apt-get -y install iputils-ping=3:20150815-2ubuntu3
 RUN apt-get -y install sudo=1.8.16-0ubuntu3
 RUN apt-get -y install vim=2:7.4.1829-1ubuntu2
 
-RUN curl https://storage.googleapis.com/kubernetes-release/release/v1.4.3/bin/linux/amd64/kubectl -o /bin/kubectl \
+RUN curl -sS https://storage.googleapis.com/kubernetes-release/release/v1.4.3/bin/linux/amd64/kubectl -o /bin/kubectl \
     && chmod +x /bin/kubectl
 
 RUN useradd -ms /bin/bash joseph
