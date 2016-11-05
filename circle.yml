@@ -13,7 +13,7 @@ test:
 
 deployment:
     hub:
-        branch: /.*/
+        branch: master
         commands:
             - docker login -e $DOCKER_EMAIL -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
             - docker push salisburyjoseph/dev-workspace-container:$CIRCLE_SHA1
