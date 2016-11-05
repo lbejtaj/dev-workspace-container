@@ -21,7 +21,9 @@ RUN apt-get -y install \
     git=1:2.7.4-0ubuntu1 \
     iputils-ping=3:20121221-5ubuntu2 \
     sudo=1.8.16-0ubuntu1 \
-    vim=2:7.4.1689-3ubuntu1.1
+    tmux=2.1-3build1 \
+    vim=2:7.4.1689-3ubuntu1.1 \
+    wget=1.17.1-1ubuntu1.1
 
 RUN curl -sS https://storage.googleapis.com/kubernetes-release/release/v1.4.3/bin/linux/amd64/kubectl -o /bin/kubectl \
     && chmod +x /bin/kubectl
@@ -40,4 +42,4 @@ RUN chown -R joseph:joseph /home/joseph/
 ENV HOME /home/joseph/
 USER joseph
 
-ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["/usr/bin/tmux"]
