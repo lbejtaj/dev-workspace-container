@@ -4,8 +4,20 @@ MAINTAINER Joseph Salisbury <salisbury.joseph@gmail.com>
 RUN apt-get -y update
 
 RUN apt-get -y install \
+    apt-transport-https=1.2.10ubuntu1 \
+    ca-certificates=20160104ubuntu1
+
+RUN apt-key adv \
+    --keyserver hkp://p80.pool.sks-keyservers.net:80 \
+    --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+RUN echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" | tee /etc/apt/sources.list.d/docker.list
+
+RUN apt-get -y update
+
+RUN apt-get -y install \
     curl=7.47.0-1ubuntu2.2 \
     dnsutils=1:9.10.3.dfsg.P4-8ubuntu1.2 \
+    docker-engine=1.12.3-0~xenial \
     git=1:2.7.4-0ubuntu1 \
     iputils-ping=3:20121221-5ubuntu2 \
     sudo=1.8.16-0ubuntu1 \
