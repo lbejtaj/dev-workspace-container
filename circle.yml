@@ -1,0 +1,19 @@
+machine:
+    services:
+        - docker
+
+dependencies:
+    override:
+        - docker info
+        - docker build --rm=false -t salisburyjoseph/dev-workspace-container:$CIRCLE_SHA1 .
+
+test:
+    override:
+        - docker run -ti salisburyjoseph/dev-workspace-container:$CIRCLE_SHA1 -c 'echo good day! && exit'
+
+deployment:
+    hub:
+        branch: /.*/
+        commands:
+            - docker login -e $DOCKER_EMAIL -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+            - docker push salisburyjoseph/dev-workspace-container:$CIRCLE_SHA1
