@@ -1,2 +1,2 @@
-# kubernetes-workspace
-Development workspace powered by Kubernetes
+# dev-workspace-container
+A personal Docker container for development work
