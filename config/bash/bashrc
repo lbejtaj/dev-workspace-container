@@ -14,4 +14,17 @@ if [ ! -f /secrets/gitcredentials ]; then
     echo "warning - git credentials not found"
 fi
 
+if [ ! -f /secrets/private-gpg ]; then
+    echo "warning - private gpg key not found"
+fi
+
+if [ ! -f /secrets/public-gpg ]; then
+    echo "warning - public gpg key not found"
+fi
+
+if ! gpg --list-keys | grep -q 'salisbury.joseph@gmail.com' ; then
+    gpg --import /secrets/private-gpg
+    gpg --import /secrets/public-gpg
+fi
+
 PS1='\[\e[1;36m\]\u\e[0m\] on \[\e[1;36m\]\H\e[0m\] at \[\e[1;36m\]\t\e[0m\] in \[\e[1;36m\]\w\e[0m\]$(__git_ps1 " (%s)")\n$ '
