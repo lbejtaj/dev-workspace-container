@@ -1,6 +1,7 @@
 [user]
 	name = Joseph Salisbury
 	email = salisbury.joseph@gmail.com
+	signingkey = 1C6A41349CB55511
 
 [help]
 	autocorrect = -1
@@ -13,4 +14,5 @@
 	b = branch
 
 [commit]
+	gpgsign = true
 	template = /home/joseph/.gittemplate
