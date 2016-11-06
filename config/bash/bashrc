@@ -10,4 +10,8 @@ export GOARCH="amd64"
 alias ls='ls -FGlh'
 alias docker='sudo docker'
 
+if [ ! -f /home/joseph/gitcredentials ]; then
+    echo "Git credentials not found"
+fi
+
 PS1='\[\e[1;36m\]\u\e[0m\] on \[\e[1;36m\]\H\e[0m\] at \[\e[1;36m\]\t\e[0m\] in \[\e[1;36m\]\w\e[0m\]$(__git_ps1 " (%s)")\n$ '
