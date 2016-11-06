@@ -16,3 +16,6 @@
 [commit]
 	gpgsign = true
 	template = /home/joseph/.gittemplate
+
+[credential]
+	helper = store --file=/home/joseph/gitcredentials
