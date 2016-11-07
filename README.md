@@ -13,3 +13,4 @@ docker run \
 ```
 
 See https://hub.docker.com/r/salisburyjoseph/dev-workspace-container/ for builds.
+Master builds are tagged with their SHA1 hash, and branch builds are tagged with their branch and SHA1 hash.
