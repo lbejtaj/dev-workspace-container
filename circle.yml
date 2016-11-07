@@ -17,3 +17,9 @@ deployment:
         commands:
             - docker login -e $DOCKER_EMAIL -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
             - docker push salisburyjoseph/dev-workspace-container:$CIRCLE_SHA1
+
+        branch: /.*/
+        commands:
+            - docker login -e $DOCKER_EMAIL -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+            - docker tag salisburyjoseph/dev-workspace-container:$CIRCLE_SHA1 salisburyjoseph/dev-workspace-container:$CIRCLE_BRANCH-$CIRCLE_SHA1
+            - docker push salisburyjoseph/dev-workspace-container:$CIRCLE_BRANCH-$CIRCLE_SHA1
