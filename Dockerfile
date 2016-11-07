@@ -15,6 +15,7 @@ RUN echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" | tee /etc/
 RUN apt-get -y update
 
 RUN apt-get -y install \
+    build-essential=12.1ubuntu2 \
     curl=7.47.0-1ubuntu2.2 \
     dnsutils=1:9.10.3.dfsg.P4-8ubuntu1.2 \
     docker-engine=1.12.3-0~xenial \
