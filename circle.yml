@@ -12,12 +12,13 @@ test:
         - docker run -ti salisburyjoseph/dev-workspace-container:$CIRCLE_SHA1 -c 'echo good day! && exit'
 
 deployment:
-    hub:
+    master:
         branch: master
         commands:
             - docker login -e $DOCKER_EMAIL -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
             - docker push salisburyjoseph/dev-workspace-container:$CIRCLE_SHA1
 
+    branches:
         branch: /.*/
         commands:
             - docker login -e $DOCKER_EMAIL -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
