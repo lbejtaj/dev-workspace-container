@@ -18,7 +18,7 @@ RUN apt-get -y install \
     build-essential=12.1ubuntu2 \
     curl=7.47.0-1ubuntu2.2 \
     dnsutils=1:9.10.3.dfsg.P4-8ubuntu1.2 \
-    docker-engine=1.12.3-0~xenial \
+    docker-engine=1.11.1-0~xenial \
     git=1:2.7.4-0ubuntu1 \
     iputils-ping=3:20121221-5ubuntu2 \
     sudo=1.8.16-0ubuntu1 \
