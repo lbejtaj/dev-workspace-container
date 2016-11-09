@@ -27,4 +27,8 @@ if ! gpg --list-keys | grep -q 'salisbury.joseph@gmail.com' ; then
     gpg --import /secrets/public-gpg
 fi
 
+# Set the terminal size - this can be an issue when running as a Kubernetes pod.
+# See https://wiki.archlinux.org/index.php/working_with_the_serial_console#Resizing_a_terminal
+stty cols 238 rows 60
+
 PS1='\[\e[1;36m\]\u\e[0m\] on \[\e[1;36m\]\H\e[0m\] at \[\e[1;36m\]\t\e[0m\] in \[\e[1;36m\]\w\e[0m\]$(__git_ps1 " (%s)")\n$ '
