@@ -1,6 +1,7 @@
 cd /home/joseph/
 
 source /home/joseph/.git_prompt.sh
+source /home/joseph/.git-completion.bash
 
 export PATH="$PATH:$HOME/bin"
 export GOPATH="$HOME/go"
