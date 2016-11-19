@@ -3,11 +3,6 @@ cd /home/joseph/
 source /home/joseph/.git_prompt.sh
 source /home/joseph/.git-completion.bash
 
-export PATH="$PATH:$HOME/bin"
-export GOPATH="$HOME/go"
-export GOOS="linux"
-export GOARCH="amd64"
-
 alias ls='ls -FGlh'
 alias docker='sudo docker'
 
@@ -23,7 +18,7 @@ if [ ! -f /secrets/public-gpg ]; then
     echo "warning - public gpg key not found"
 fi
 
-if ! gpg --list-keys | grep -q 'salisbury.joseph@gmail.com' ; then
+if ! gpg --list-keys | grep -q 'salisbury.joseph@gmail.com'; then
     gpg --import /secrets/private-gpg
     gpg --import /secrets/public-gpg
 fi
@@ -33,3 +28,4 @@ fi
 stty cols 238 rows 60
 
 PS1='\[\e[1;36m\]\u\e[0m\] on \[\e[1;36m\]\H\e[0m\] at \[\e[1;36m\]\t\e[0m\] in \[\e[1;36m\]\w\e[0m\]$(__git_ps1 " (%s)")\n$ '
+
