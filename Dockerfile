@@ -31,6 +31,9 @@ RUN curl -sS https://storage.googleapis.com/kubernetes-release/release/v1.4.3/bi
 
 RUN useradd -ms /bin/bash joseph
 
+RUN curl -sS https://raw.githubusercontent.com/git/git/1310affe024fba407bff55dbe65cd6d670c8a32d/contrib/completion/git-completion.bash -o /home/joseph/.git-completion.bash \
+    && chmod +x /home/joseph/.git-completion.bash
+
 COPY ./config/bash/bashrc /home/joseph/.bashrc
 COPY ./config/bash/git_prompt.sh /home/joseph/.git_prompt.sh
 
