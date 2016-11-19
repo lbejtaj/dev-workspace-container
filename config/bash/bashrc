@@ -18,9 +18,11 @@ if [ ! -f /secrets/public-gpg ]; then
     echo "warning - public gpg key not found"
 fi
 
-if ! gpg --list-keys | grep -q 'salisbury.joseph@gmail.com'; then
-    gpg --import /secrets/private-gpg
-    gpg --import /secrets/public-gpg
+if [ -f /secrets/private-gpg ] && [ -f /secrets/public-gpg ] ; then
+    if ! gpg --list-keys | grep -q 'salisbury.joseph@gmail.com' ; then
+        gpg --import /secrets/private-gpg
+        gpg --import /secrets/public-gpg
+    fi
 fi
 
 # Set the terminal size - this can be an issue when running as a Kubernetes pod.
