@@ -19,3 +19,7 @@
 
 [credential]
 	helper = store --file=/secrets/gitcredentials
+
+[url "https://github.com/"]
+	insteadOf = gh:
+
