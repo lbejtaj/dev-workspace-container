@@ -28,6 +28,8 @@ RUN apt-get -y install \
 
 RUN curl -sS https://storage.googleapis.com/kubernetes-release/release/v1.4.3/bin/linux/amd64/kubectl -o /bin/kubectl \
     && chmod +x /bin/kubectl
+RUN wget https://github.com/giantswarm/builder/releases/download/0.15.2/builder.0.15.2.linux.tar.gz -qO- | tar xzf - ./builder \
+    && chmod +x ./builder && mv ./builder /bin/builder
 
 RUN useradd -ms /bin/bash joseph
 
