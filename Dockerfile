@@ -26,6 +26,9 @@ RUN apt-get -y install \
     vim=2:7.4.1689-3ubuntu1.1 \
     wget=1.17.1-1ubuntu1.1
 
+RUN wget https://storage.googleapis.com/golang/go1.7.3.linux-amd64.tar.gz -qO- | tar xzf - \
+    && mv ./go /usr/local/
+
 RUN curl -sS https://storage.googleapis.com/kubernetes-release/release/v1.4.3/bin/linux/amd64/kubectl -o /bin/kubectl \
     && chmod +x /bin/kubectl
 RUN wget https://github.com/giantswarm/builder/releases/download/0.15.2/builder.0.15.2.linux.tar.gz -qO- | tar xzf - ./builder \

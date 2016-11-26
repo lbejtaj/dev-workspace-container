@@ -3,6 +3,11 @@ cd /home/joseph/
 source /home/joseph/.git_prompt.sh
 source /home/joseph/.git-completion.bash
 
+export GOROOT=/usr/local/go
+export GOPATH=$HOME/go
+
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+
 alias ls='ls -FGlh'
 alias docker='sudo docker'
 
