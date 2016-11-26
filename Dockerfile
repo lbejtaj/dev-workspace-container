@@ -48,4 +48,5 @@ RUN chown -R joseph:joseph /home/joseph/
 ENV HOME /home/joseph/
 USER joseph
 
-ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["/usr/bin/tmux"]
+
