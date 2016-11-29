@@ -4,7 +4,7 @@ MAINTAINER Joseph Salisbury <salisbury.joseph@gmail.com>
 RUN apt-get -y update
 
 RUN apt-get -y install \
-    apt-transport-https=1.2.10ubuntu1 \
+    apt-transport-https=1.2.15 \
     ca-certificates=20160104ubuntu1 \
     software-properties-common=0.96.20.4
 
@@ -19,14 +19,14 @@ RUN apt-get -y update
 RUN apt-get -y install \
     build-essential=12.1ubuntu2 \
     curl=7.47.0-1ubuntu2.2 \
-    dnsutils=1:9.10.3.dfsg.P4-8ubuntu1.2 \
+    dnsutils=1:9.10.3.dfsg.P4-8ubuntu1.3 \
     docker-engine=1.11.1-0~xenial \
     git=1:2.7.4-0ubuntu1 \
     glide=0.12.3~xenial \
     iputils-ping=3:20121221-5ubuntu2 \
-    sudo=1.8.16-0ubuntu1 \
+    sudo=1.8.16-0ubuntu1.2 \
     tmux=2.1-3build1 \
-    vim=2:7.4.1689-3ubuntu1.1 \
+    vim=2:7.4.1689-3ubuntu1.2 \
     wget=1.17.1-1ubuntu1.1
 
 RUN wget https://storage.googleapis.com/golang/go1.7.3.linux-amd64.tar.gz -qO- | tar xzf - \
