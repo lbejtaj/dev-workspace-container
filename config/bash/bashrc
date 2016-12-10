@@ -42,6 +42,16 @@ if [ -f /secrets/private-gpg ] && [ -f /secrets/public-gpg ] ; then
     fi
 fi
 
+kubectl config set-cluster local-cluster \
+    --server=https://$KUBERNETES_SERVICE_HOST \
+    --certificate-authority=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt > /dev/null 2>&1
+kubectl config set-credentials local-admin \
+    --certificate-authority=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt \
+    --token=$(cat /var/run/secrets/kubernetes.io/serviceaccount/token) > /dev/null 2>&1
+kubectl config set-context local-system \
+    --cluster=local-cluster --user=local-admin > /dev/null 2>&1
+kubectl config use-context default-system > /dev/null 2>&1
+
 # Set the terminal size - this can be an issue when running as a Kubernetes pod.
 # See https://wiki.archlinux.org/index.php/working_with_the_serial_console#Resizing_a_terminal
 stty cols 238 rows 60
