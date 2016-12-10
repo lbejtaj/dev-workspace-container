@@ -2,6 +2,7 @@ cd /home/joseph/
 
 source /home/joseph/.git_prompt.sh
 source /home/joseph/.git-completion.bash
+source /home/joseph/.hub-completion.bash
 
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
@@ -10,9 +11,16 @@ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 alias ls='ls -FGlh'
 alias docker='sudo docker'
+alias git='hub'
+
+export GITHUB_USER=JosephSalisbury
 
 if [ ! -f /secrets/gitcredentials ]; then
     echo "warning - git credentials not found"
+fi
+
+if [ ! -f /secrets/github_token ]; then
+    echo "warning - github token not found"
 fi
 
 if [ ! -f /secrets/private-gpg ]; then
@@ -21,6 +29,10 @@ fi
 
 if [ ! -f /secrets/public-gpg ]; then
     echo "warning - public gpg key not found"
+fi
+
+if [ -f /secrets/github_token ]; then
+    export GITHUB_TOKEN=$(cat /secrets/github_token)
 fi
 
 if [ -f /secrets/private-gpg ] && [ -f /secrets/public-gpg ] ; then
