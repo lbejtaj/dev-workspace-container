@@ -12,8 +12,14 @@ alias ls='ls -FGlh'
 alias docker='sudo docker'
 alias git='hub'
 
+GITHUB_USER=JosephSalisbury
+
 if [ ! -f /secrets/gitcredentials ]; then
     echo "warning - git credentials not found"
+fi
+
+if [ ! -f /secrets/github_token ]; then
+    echo "warning - github token not found"
 fi
 
 if [ ! -f /secrets/private-gpg ]; then
@@ -22,6 +28,10 @@ fi
 
 if [ ! -f /secrets/public-gpg ]; then
     echo "warning - public gpg key not found"
+fi
+
+if [ -f /secrets/github_token ]; then
+    GITHUB_TOKEN=$(cat /secrets/github_token)
 fi
 
 if [ -f /secrets/private-gpg ] && [ -f /secrets/public-gpg ] ; then
