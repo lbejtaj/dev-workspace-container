@@ -36,6 +36,8 @@ RUN curl -sS https://storage.googleapis.com/kubernetes-release/release/v1.4.3/bi
     && chmod +x /bin/kubectl
 RUN wget https://github.com/giantswarm/builder/releases/download/0.15.2/builder.0.15.2.linux.tar.gz -qO- | tar xzf - ./builder \
     && chmod +x ./builder && mv ./builder /bin/builder
+RUN wget https://github.com/github/hub/releases/download/v2.2.9/hub-linux-amd64-2.2.9.tgz -qO- | tar xzf - hub-linux-amd64-2.2.9/bin/hub \
+    && chmod +x ./hub-linux-amd64-2.2.9/bin/hub && mv ./hub-linux-amd64-2.2.9/bin/hub /bin/hub && rm -rf ./hub-linux-amd64-2.2.9/
 
 RUN useradd -ms /bin/bash joseph
 

@@ -10,6 +10,7 @@ export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 alias ls='ls -FGlh'
 alias docker='sudo docker'
+alias git='hub'
 
 if [ ! -f /secrets/gitcredentials ]; then
     echo "warning - git credentials not found"
