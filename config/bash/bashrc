@@ -2,6 +2,7 @@ cd /home/joseph/
 
 source /home/joseph/.git_prompt.sh
 source /home/joseph/.git-completion.bash
+source /home/joseph/.hub-completion.bash
 
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go

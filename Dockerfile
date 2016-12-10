@@ -32,14 +32,16 @@ RUN apt-get -y install \
 RUN wget https://storage.googleapis.com/golang/go1.7.3.linux-amd64.tar.gz -qO- | tar xzf - \
     && mv ./go /usr/local/
 
+RUN useradd -ms /bin/bash joseph
+
 RUN curl -sS https://storage.googleapis.com/kubernetes-release/release/v1.4.3/bin/linux/amd64/kubectl -o /bin/kubectl \
     && chmod +x /bin/kubectl
 RUN wget https://github.com/giantswarm/builder/releases/download/0.15.2/builder.0.15.2.linux.tar.gz -qO- | tar xzf - ./builder \
     && chmod +x ./builder && mv ./builder /bin/builder
-RUN wget https://github.com/github/hub/releases/download/v2.2.9/hub-linux-amd64-2.2.9.tgz -qO- | tar xzf - hub-linux-amd64-2.2.9/bin/hub \
-    && chmod +x ./hub-linux-amd64-2.2.9/bin/hub && mv ./hub-linux-amd64-2.2.9/bin/hub /bin/hub && rm -rf ./hub-linux-amd64-2.2.9/
-
-RUN useradd -ms /bin/bash joseph
+RUN wget https://github.com/github/hub/releases/download/v2.2.9/hub-linux-amd64-2.2.9.tgz -qO- | tar xzf - hub-linux-amd64-2.2.9/bin/hub hub-linux-amd64-2.2.9/etc/hub.bash_completion.sh \
+    && chmod +x ./hub-linux-amd64-2.2.9/bin/hub && mv ./hub-linux-amd64-2.2.9/bin/hub /bin/hub \
+    && mv ./hub-linux-amd64-2.2.9/etc/hub.bash_completion.sh /home/joseph/.hub-completion.bash \
+    && rm -rf ./hub-linux-amd64-2.2.9/
 
 RUN curl -sS https://raw.githubusercontent.com/git/git/1310affe024fba407bff55dbe65cd6d670c8a32d/contrib/completion/git-completion.bash -o /home/joseph/.git-completion.bash \
     && chmod +x /home/joseph/.git-completion.bash
