@@ -36,9 +36,9 @@ if [ -f /secrets/github_token ]; then
 fi
 
 if [ -f /secrets/private-gpg ] && [ -f /secrets/public-gpg ] ; then
-    if ! gpg --list-keys | grep -q 'salisbury.joseph@gmail.com' ; then
-        gpg --import /secrets/private-gpg
-        gpg --import /secrets/public-gpg
+    if ! gpg --list-keys 2>&1 | grep -q 'salisbury.joseph@gmail.com' ; then
+        gpg --import /secrets/private-gpg > /dev/null 2>&1
+        gpg --import /secrets/public-gpg > /dev/null 2>&1 
     fi
 fi
 
