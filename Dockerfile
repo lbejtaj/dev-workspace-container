@@ -1,12 +1,13 @@
 FROM ubuntu:16.04
+# LTS - Xenial Xerus
 MAINTAINER Joseph Salisbury <salisbury.joseph@gmail.com>
 
 RUN apt-get -y update
 
 RUN apt-get -y install \
-    apt-transport-https=1.2.15 \
-    ca-certificates=20160104ubuntu1 \
-    software-properties-common=0.96.20.4
+    apt-transport-https \
+    ca-certificates \
+    software-properties-common
 
 RUN apt-key adv \
     --keyserver hkp://p80.pool.sks-keyservers.net:80 \
@@ -19,7 +20,7 @@ RUN apt-get -y update
 RUN apt-get -y install \
     build-essential=12.1ubuntu2 \
     curl=7.47.0-1ubuntu2.2 \
-    dnsutils=1:9.10.3.dfsg.P4-8ubuntu1.3 \
+    dnsutils=1:9.10.3.dfsg.P4-8ubuntu1.4 \
     docker-engine=1.11.1-0~xenial \
     git=1:2.7.4-0ubuntu1 \
     glide=0.12.3~xenial \
@@ -36,6 +37,10 @@ RUN useradd -ms /bin/bash joseph
 
 RUN curl -sS https://storage.googleapis.com/kubernetes-release/release/v1.4.3/bin/linux/amd64/kubectl -o /bin/kubectl \
     && chmod +x /bin/kubectl
+RUN wget https://github.com/coreos/etcd/releases/download/v3.0.16/etcd-v3.0.16-linux-amd64.tar.gz -qO- | tar xzf - etcd-v3.0.16-linux-amd64/etcdctl \
+    && chmod +x ./etcd-v3.0.16-linux-amd64/etcdctl \
+    && mv ./etcd-v3.0.16-linux-amd64/etcdctl /bin/etcdctl \
+    && rm -rf ./etcd-v3.0.16-linux-amd64
 RUN wget https://github.com/giantswarm/builder/releases/download/0.15.2/builder.0.15.2.linux.tar.gz -qO- | tar xzf - ./builder \
     && chmod +x ./builder && mv ./builder /bin/builder
 RUN wget https://github.com/github/hub/releases/download/v2.2.9/hub-linux-amd64-2.2.9.tgz -qO- | tar xzf - hub-linux-amd64-2.2.9/bin/hub hub-linux-amd64-2.2.9/etc/hub.bash_completion.sh \
