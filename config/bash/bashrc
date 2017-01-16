@@ -7,6 +7,8 @@ source /home/joseph/.hub-completion.bash
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 
+export ETCDCTL_API=3
+
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 alias ls='ls -FGlh'
