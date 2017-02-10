@@ -17,6 +17,9 @@ alias git='hub'
 
 export GITHUB_USER=JosephSalisbury
 
+get-go () { go get -d github.com/$@; }
+get-git () { git clone $@; }
+
 if [ ! -f /secrets/gitcredentials ]; then
     echo "warning - git credentials not found"
 fi
