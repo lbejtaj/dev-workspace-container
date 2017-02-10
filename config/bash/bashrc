@@ -1,25 +1,33 @@
 cd /home/joseph/
 
+source /etc/bash_completion
 source /home/joseph/.git_prompt.sh
 source /home/joseph/.git-completion.bash
 source /home/joseph/.hub-completion.bash
 
+# Add kubectl completion
+source <(kubectl completion bash)
+
+# Add configuration for golang
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
+# Set etcdctl to use API v3
 export ETCDCTL_API=3
 
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+# Add username for hub
+export GITHUB_USER=JosephSalisbury
 
 alias ls='ls -FGlh'
 alias docker='sudo docker'
 alias git='hub'
 
-export GITHUB_USER=JosephSalisbury
-
+# Functions for quickly fetching repos
 get-go () { go get -d github.com/$@; }
 get-git () { git clone $@; }
 
+# Secret management
 if [ ! -f /secrets/gitcredentials ]; then
     echo "warning - git credentials not found"
 fi
@@ -36,10 +44,12 @@ if [ ! -f /secrets/public-gpg ]; then
     echo "warning - public gpg key not found"
 fi
 
+# Add token for hub
 if [ -f /secrets/github_token ]; then
     export GITHUB_TOKEN=$(cat /secrets/github_token)
 fi
 
+# Add gpg secrets
 if [ -f /secrets/private-gpg ] && [ -f /secrets/public-gpg ] ; then
     if ! gpg --list-keys 2>&1 | grep -q 'salisbury.joseph@gmail.com' ; then
         gpg --import /secrets/private-gpg > /dev/null 2>&1
@@ -47,6 +57,7 @@ if [ -f /secrets/private-gpg ] && [ -f /secrets/public-gpg ] ; then
     fi
 fi
 
+# Configure kubectl
 kubectl config set-cluster local-cluster \
     --server=https://$KUBERNETES_SERVICE_HOST \
     --certificate-authority=/var/run/secrets/kubernetes.io/serviceaccount/ca.crt > /dev/null 2>&1
