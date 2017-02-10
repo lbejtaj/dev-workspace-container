@@ -44,8 +44,6 @@ RUN wget https://github.com/coreos/etcd/releases/download/v3.0.16/etcd-v3.0.16-l
     && chmod +x ./etcd-v3.0.16-linux-amd64/etcdctl \
     && mv ./etcd-v3.0.16-linux-amd64/etcdctl /bin/etcdctl \
     && rm -rf ./etcd-v3.0.16-linux-amd64
-RUN wget https://github.com/giantswarm/builder/releases/download/0.15.2/builder.0.15.2.linux.tar.gz -qO- | tar xzf - ./builder \
-    && chmod +x ./builder && mv ./builder /bin/builder
 RUN wget https://github.com/github/hub/releases/download/v2.2.9/hub-linux-amd64-2.2.9.tgz -qO- | tar xzf - hub-linux-amd64-2.2.9/bin/hub hub-linux-amd64-2.2.9/etc/hub.bash_completion.sh \
     && chmod +x ./hub-linux-amd64-2.2.9/bin/hub && mv ./hub-linux-amd64-2.2.9/bin/hub /bin/hub \
     && mv ./hub-linux-amd64-2.2.9/etc/hub.bash_completion.sh /home/joseph/.hub-completion.bash \
