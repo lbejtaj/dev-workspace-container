@@ -25,7 +25,7 @@ RUN apt-get -y install \
     git=1:2.7.4-0ubuntu1 \
     glide=0.12.3~xenial \
     iputils-ping=3:20121221-5ubuntu2 \
-    sudo=1.8.16-0ubuntu1.2 \
+    sudo=1.8.16-0ubuntu1 \
     tmux=2.1-3build1 \
     vim=2:7.4.1689-3ubuntu1.2 \
     wget=1.17.1-1ubuntu1.1
