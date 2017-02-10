@@ -20,6 +20,7 @@ RUN apt-get -y update
 RUN apt-get -y install \
     bash-completion=1:2.1-4.2ubuntu1.1 \
     build-essential=12.1ubuntu2 \
+    command-not-found=0.3ubuntu16.04.2 \
     curl=7.47.0-1ubuntu2.2 \
     dnsutils=1:9.10.3.dfsg.P4-8ubuntu1.4 \
     docker-engine=1.11.1-0~xenial \

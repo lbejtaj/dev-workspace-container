@@ -27,6 +27,15 @@ alias git='hub'
 get-go () { go get -d github.com/$@; }
 get-git () { git clone $@; }
 
+command_not_found_handle() {
+    if [ -x /usr/lib/command-not-found ]; then
+        /usr/lib/command-not-found -- "$1"
+        return $?
+    else
+       return 127
+    fi
+}
+
 # Secret management
 if [ ! -f /secrets/gitcredentials ]; then
     echo "warning - git credentials not found"
