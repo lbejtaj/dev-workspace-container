@@ -22,6 +22,7 @@ export GITHUB_USER=JosephSalisbury
 alias ls='ls -FGlh'
 alias docker='sudo docker'
 alias git='hub'
+alias watch-last='watch "$(history | cut -c 8- | tail -n 2 | head -n 1)"'
 
 # Functions for quickly fetching repos
 get-go () { go get -d github.com/$@; }
