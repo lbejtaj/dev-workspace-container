@@ -1,11 +1,12 @@
+" enable indent plugin
 filetype plugin indent on
 
-" show existing tab with 4 spaces width
-set tabstop=4
+" reload if the file changes
+set autoread
 
-" on pressing tab, insert 4 spaces
-set expandtab
+" run gofmt on save
+au BufWritePost *.go !gofmt -w %
 
-" one backspace goes back 4 spaces
-set softtabstop=4
-
+" show tabs as characters
+set list
+set listchars=tab:>-
