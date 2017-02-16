@@ -62,6 +62,8 @@ COPY ./config/sudo/joseph /etc/sudoers.d/joseph
 
 COPY ./config/tmux/tmux.conf /home/joseph/.tmux.conf
 
+COPY ./config/vim/vimrc /home/joseph/.vimrc
+
 RUN chown -R joseph:joseph /home/joseph/
 ENV HOME /home/joseph/
 USER joseph

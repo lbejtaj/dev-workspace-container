@@ -1,0 +1,11 @@
+filetype plugin indent on
+
+" show existing tab with 4 spaces width
+set tabstop=4
+
+" on pressing tab, insert 4 spaces
+set expandtab
+
+" one backspace goes back 4 spaces
+set softtabstop=4
+
