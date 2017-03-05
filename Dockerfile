@@ -22,7 +22,7 @@ RUN apt-get -y install \
     build-essential=12.1ubuntu2 \
     command-not-found=0.3ubuntu16.04.2 \
     curl=7.47.0-1ubuntu2.2 \
-    dnsutils=1:9.10.3.dfsg.P4-8ubuntu1.4 \
+    dnsutils=1:9.10.3.dfsg.P4-8ubuntu1.5 \
     docker-engine=1.11.1-0~xenial \
     git=1:2.7.4-0ubuntu1 \
     glide=0.12.3~xenial \
