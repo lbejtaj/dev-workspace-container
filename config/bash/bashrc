@@ -24,6 +24,9 @@ alias docker='sudo docker'
 alias git='hub'
 alias watch-last='watch "$(history | cut -c 8- | tail -n 2 | head -n 1)"'
 
+# Enable vi editing mode
+set -o vi
+
 # Functions for quickly fetching repos
 get-go () { go get -d github.com/$@; }
 get-git () { git clone $@; }
