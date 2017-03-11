@@ -53,7 +53,6 @@ RUN curl -sS https://raw.githubusercontent.com/git/git/1310affe024fba407bff55dbe
     && chmod +x /home/joseph/.git-completion.bash
 
 COPY ./config/bash/bashrc /home/joseph/.bashrc
-COPY ./config/bash/git_prompt.sh /home/joseph/.git_prompt.sh
 
 COPY ./config/git/gitconfig /home/joseph/.gitconfig
 COPY ./config/git/gittemplate /home/joseph/.gittemplate
@@ -61,6 +60,7 @@ COPY ./config/git/gittemplate /home/joseph/.gittemplate
 COPY ./config/sudo/joseph /etc/sudoers.d/joseph
 
 COPY ./config/tmux/tmux.conf /home/joseph/.tmux.conf
+COPY ./config/tmux/tmux-right-status.sh /home/joseph/.tmux-right-status.sh
 
 COPY ./config/vim/vimrc /home/joseph/.vimrc
 
