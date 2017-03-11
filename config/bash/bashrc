@@ -22,6 +22,8 @@ alias ls='ls -FGlh'
 alias docker='sudo docker'
 alias git='hub'
 alias watch-last='watch "$(history | cut -c 8- | tail -n 2 | head -n 1)"'
+alias go-test='go test -v $(glide novendor)'
+alias go-build='go build -v'
 
 # Enable vi editing mode
 set -o vi
