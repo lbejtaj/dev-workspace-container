@@ -33,7 +33,7 @@ RUN apt-get -y install \
     vim=2:7.4.1689-3ubuntu1.2 \
     wget=1.17.1-1ubuntu1.1
 
-RUN wget https://storage.googleapis.com/golang/go1.7.3.linux-amd64.tar.gz -qO- | tar xzf - \
+RUN wget https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz -qO- | tar xzf - \
     && mv ./go /usr/local/
 
 RUN useradd -ms /bin/bash joseph
