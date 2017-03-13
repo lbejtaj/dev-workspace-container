@@ -35,6 +35,7 @@ RUN apt-get -y install \
 
 RUN wget https://storage.googleapis.com/golang/go1.8.linux-amd64.tar.gz -qO- | tar xzf - \
     && mv ./go /usr/local/
+RUN /usr/local/go/bin/go get -v golang.org/x/tools/cmd/goimports && mv /root/go/bin/goimports /bin/goimports
 
 RUN useradd -ms /bin/bash joseph
 
