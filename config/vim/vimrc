@@ -5,7 +5,7 @@ filetype plugin indent on
 set autoread
 
 " run gofmt on save
-au BufWritePost *.go !gofmt -w %
+au BufWritePost *.go !goimports -w %
 
 " show tabs as characters
 set list
