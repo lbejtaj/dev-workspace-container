@@ -39,7 +39,7 @@ RUN /usr/local/go/bin/go get -v golang.org/x/tools/cmd/goimports && mv /root/go/
 
 RUN useradd -ms /bin/bash joseph
 
-RUN curl -sS https://storage.googleapis.com/kubernetes-release/release/v1.4.3/bin/linux/amd64/kubectl -o /bin/kubectl \
+RUN curl -sS https://storage.googleapis.com/kubernetes-release/release/v1.5.3/bin/linux/amd64/kubectl -o /bin/kubectl \
     && chmod +x /bin/kubectl
 RUN wget https://github.com/coreos/etcd/releases/download/v3.0.16/etcd-v3.0.16-linux-amd64.tar.gz -qO- | tar xzf - etcd-v3.0.16-linux-amd64/etcdctl \
     && chmod +x ./etcd-v3.0.16-linux-amd64/etcdctl \
