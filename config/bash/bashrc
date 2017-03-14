@@ -35,6 +35,14 @@ get-go () {
 }
 get-git () { git clone $@; }
 
+# Function to swap to master, pull, and delete the old branch
+git-finish() {
+	BRANCH=$(git rev-parse --abbrev-ref HEAD)
+	git checkout master
+	git pull
+	git branch -d $BRANCH
+}
+
 command_not_found_handle() {
     if [ -x /usr/lib/command-not-found ]; then
         /usr/lib/command-not-found -- "$1"
