@@ -43,6 +43,15 @@ git-finish() {
 	git branch -d $BRANCH
 }
 
+hack() {
+	get-go $1;
+	tmux split-window -h;
+	printf "\033c";
+	cd /home/joseph/go/src/github.com/giantswarm/$1;
+	tmux send-keys -t right "cd /home/joseph/go/src/github.com/giantswarm/$1 && printf '\033c'" Enter;
+	tmux select-pane -t left;
+}
+
 command_not_found_handle() {
     if [ -x /usr/lib/command-not-found ]; then
         /usr/lib/command-not-found -- "$1"
