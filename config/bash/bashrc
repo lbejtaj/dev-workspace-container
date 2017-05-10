@@ -45,11 +45,8 @@ git-finish() {
 
 hack() {
 	get-go $1;
-	tmux split-window -h;
-	printf "\033c";
 	cd /home/joseph/go/src/github.com/giantswarm/$1;
-	tmux send-keys -t right "cd /home/joseph/go/src/github.com/giantswarm/$1 && printf '\033c'" Enter;
-	tmux select-pane -t left;
+	printf "\033c";
 }
 
 command_not_found_handle() {
