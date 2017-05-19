@@ -49,6 +49,10 @@ RUN wget https://github.com/github/hub/releases/download/v2.2.9/hub-linux-amd64-
     && chmod +x ./hub-linux-amd64-2.2.9/bin/hub && mv ./hub-linux-amd64-2.2.9/bin/hub /bin/hub \
     && mv ./hub-linux-amd64-2.2.9/etc/hub.bash_completion.sh /home/joseph/.hub-completion.bash \
     && rm -rf ./hub-linux-amd64-2.2.9/
+RUN wget https://storage.googleapis.com/kubernetes-helm/helm-v2.4.2-linux-amd64.tar.gz -qO- | tar xzf - linux-amd64/helm \
+    && chmod +x ./linux-amd64/helm \
+    && mv ./linux-amd64/helm /bin/helm \
+    && rm -rf ./linux-amd64
 
 RUN curl -sS https://raw.githubusercontent.com/git/git/1310affe024fba407bff55dbe65cd6d670c8a32d/contrib/completion/git-completion.bash -o /home/joseph/.git-completion.bash \
     && chmod +x /home/joseph/.git-completion.bash
